@@ -18,6 +18,7 @@ spec:
         - name: rabbitmq
           image: pug-ci/rabbitmq:0.1.0
           ports:
+            - containerPort: 5672
             - containerPort: 15672
           volumeMounts:
             - name: rabbitmq-data
