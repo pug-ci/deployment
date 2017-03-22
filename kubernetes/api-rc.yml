@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: pug-api
-          image: pug-ci/pug-api:latest
+          image: pug-ci/pug-api:0.1.0
           ports:
             - containerPort: 3000
