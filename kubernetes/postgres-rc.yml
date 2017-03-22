@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: postgres-rc
+spec:
+  replicas: 1
+  selector:
+    name: postgres-pod
+    app: pug-ci
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        name: postgres-pod
+        app: pug-ci
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:9.5
+          env:
+            - name: POSTGRES_USER
+              value: pug-api
+            - name: POSTGRES_PASSWORD
+              value: pug-api
+          ports:
+            - containerPort: 3000
