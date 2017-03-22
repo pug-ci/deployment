@@ -19,3 +19,22 @@ spec:
           image: pug-ci/pug-api:0.1.0
           ports:
             - containerPort: 3000
+          env:
+            - name: PUG_API_HOST
+              value: localhost:3000
+            - name: PUG_API_SECRET_KEY_BASE
+              value: "xxxx"
+            - name: PUG_API_FRONTEND_URL
+              value: localhost:8080
+            - name: PUG_API_OMNIAUTH_GITHUB_ID
+              value: "1234"
+            - name: PUG_API_OMNIAUTH_GITHUB_SECRET
+              value: "1234"
+            - name: PUG_API_DATABASE_URL
+              value: postgres://pug-api:pug-api@postgres-svc:5432/pug-api
+            - name: PUG_API_AMQP_USERNAME
+              value: guest
+            - name: PUG_API_AMQP_PASSWORD
+              value: guest
+            - name: PUG_API_AMQP_HOST
+              value: rabbitmq-svc
