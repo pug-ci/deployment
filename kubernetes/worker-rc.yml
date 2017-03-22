@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: pug-worker-rc
+spec:
+  replicas: 1
+  selector:
+    name: pug-worker-pod
+    app: pug-ci
+  template:
+    metadata:
+      name: pug-worker-pod
+      labels:
+        name: pug-worker-pod
+        app: pug-ci
+    spec:
+      containers:
+        - name: pug-worker
+          image: pug-ci/pug-worker:0.1.0
+          env:
+            - name: PUG_WORKER_AMQP_HOST
+              value: rabbitmq-svc
+          volumeMounts:
+            - name: docker
+              mountPath: /var/lib/docker
+      volumes:
+        - name: docker
+          hostPath:
+            path: /var/lib/docker
