@@ -20,10 +20,10 @@ spec:
           ports:
             - containerPort: 5672
             - containerPort: 15672
-          volumeMounts:
-            - name: rabbitmq-data
-              mountPath: /var/lib/rabbitmq
-      volumes:
-        - name: rabbitmq-data
-          hostPath:
-            path: /var/lib/rabbitmq
+          # volumeMounts:
+          #   - name: rabbitmq-data
+          #     mountPath: /var/lib/rabbitmq
+      # volumes:
+      #   - name: rabbitmq-data
+      #     hostPath:
+      #       path: /var/lib/rabbitmq
